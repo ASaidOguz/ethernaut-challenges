@@ -8,16 +8,16 @@ const hre = require("hardhat");
 
 async function main() {
   
-  const Gatekeeper = await hre.ethers.getContractFactory("GatekeeperOne");
+ /*  const Gatekeeper = await hre.ethers.getContractFactory("GatekeeperOne");
   const gatekeeper = await Gatekeeper.deploy();
   await gatekeeper.deployed();
   console.log(
     `Gatekeeperone deployed on ${gatekeeper.address}`
-    )
- //const gatekeeperOneAddr="0x2a2497aE349bCA901Fea458370Bd7dDa594D1D69"
+    ) */
+ const gatekeeperOneAddr="0x00F62E96096b9dc6A83eC3dfe78a305368280022"
 
   const Contract = await hre.ethers.getContractFactory("Attack");
-  const contract = await Contract.deploy(gatekeeper.address);
+  const contract = await Contract.deploy(gatekeeperOneAddr);
   await contract.deployed();
 
   console.log(

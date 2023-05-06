@@ -7,7 +7,7 @@ pragma solidity ^0.8.0;
 
 contract Attack {
     // owner likewise should be changed according the account in hardhat network
-    address public owner=0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
+    address public owner=0x92e5c70Dd41824a0617e07271A7E1e81A9BcE064;
     address public gatekeeper;
     GatekeeperOne public gatekeeperone;
     bytes8 gatekey;

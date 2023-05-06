@@ -4,6 +4,10 @@ require("@nomicfoundation/hardhat-toolbox");
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.0",
+  optimizer: {
+    enabled: true,
+    runs: 1000,
+  },
   networks: {
     localhost: {
       url: "http://localhost:8545", // Use the default Hardhat local node URL
@@ -11,9 +15,13 @@ module.exports = {
     goerli: {
       url: process.env.ALCHEMY_GOERLI_URL,
       accounts: [process.env.PRIVATE_KEY]
+    },
+    sepolia:{
+      url: process.env.ALCHEMY_SEPOLIA_URL,
+      accounts:[process.env.PRIVATE_KEY_SEPOLIA]
     }
   },
   etherscan:{
-    apiKey:{goerli:process.env.ETHERSCAN_API_KEY}
+    apiKey:{sepolia:process.env.ETHERSCAN_API_KEY}
    }
 };
