@@ -54,3 +54,13 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
+
+
+/* 
+  SlotCheck contract's slot 0x0:
+                        0x  00000              --> padding into 32 bytes
+                            6f05b59d3b20000    --> struct.amount  
+                            01                 --> struct.isApproved
+                            0c                 --> struct.id
+                            92e5c70dd41824a0617e07271a7e1e81a9bce064 --> struct.receiver
+                            */

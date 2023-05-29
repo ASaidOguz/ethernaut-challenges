@@ -12,14 +12,15 @@ async function main() {
 
   const lockedAmount = hre.ethers.utils.parseEther("0.001"); */
   const switchAddr="0x5FbDB2315678afecb367f032d93F642f64180aa3"
+  const SlotCheckAddr="0x8A791620dd6260079BF849Dc5567aDC3F2FdC318"
   const slot="0x0"
 
   
   const slotValue = await hre.ethers.provider.getStorageAt(switchAddr,slot);
-     //type cast utf8 to bytes 
+  const slotValue2 = await hre.ethers.provider.getStorageAt(SlotCheckAddr,slot);
   
-   console.log(`slot ${slot}:${slotValue}`)
- 
+   console.log(`Switch contract's slot ${slot}:${slotValue}`)
+   console.log(`SlotCheck contract's slot ${slot}:${slotValue2}`)
 
 }
 

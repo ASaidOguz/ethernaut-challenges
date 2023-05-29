@@ -14,11 +14,16 @@ async function main() {
 
   const Switch = await hre.ethers.getContractFactory("Switch");
   const sWitch = await Switch.deploy();
-
   await sWitch.deployed();
-
   console.log(
     `Switch deployed to ${sWitch.address}`
+  );
+
+  const SlotCheck= await hre.ethers.getContractFactory("SlotCheck")
+  const slotCheck=await SlotCheck.deploy()
+  await slotCheck.deployed()
+  console.log(
+    `SlotCheck deployed to ${slotCheck.address}`
   );
 }
 
