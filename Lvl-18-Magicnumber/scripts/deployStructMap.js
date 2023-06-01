@@ -5,7 +5,7 @@ async function main() {
   
   const StructMap=await hre.ethers.getContractFactory("StructMap")
   const structMap=await StructMap.deploy()
-
+  //! This ctf demonstrate the effect of mapping deletion effect ....
    /* await structMap.deployed()
    await structMap.deleteAuditor(1) */
   /*  const{auditorAddr,booly}=await structMap.getAuditorInfo(1) */
