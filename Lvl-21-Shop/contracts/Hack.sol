@@ -5,7 +5,7 @@ pragma solidity ^0.8.9;
 // import "hardhat/console.sol";
 import"./Shop.sol";
 contract Hack {
-    uint fakePrice=101;
+    uint fakePrice=100;
     uint reasnbleprice=0;
     address public victim=0xc4204abaE9dD5707Dcb8Ab1b7478C406a130f179;
     Shop public shop;
